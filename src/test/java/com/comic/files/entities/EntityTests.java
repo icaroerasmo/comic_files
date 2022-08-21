@@ -2,6 +2,7 @@ package com.comic.files.entities;
 
 import com.comic.files.dto.DUser;
 import com.comic.files.model.AcceptedObjects;
+import com.comic.files.model.EUser;
 import org.junit.jupiter.api.Test;
 
 import javax.persistence.Id;
@@ -28,7 +29,8 @@ public class EntityTests {
     public EntityTests() {
 
         acceptedObjects = new AcceptedObjects[] {
-                new AcceptedObjects(DUser.class, Collections.emptyList())
+                new AcceptedObjects(DUser.class, Collections.emptyList()),
+                new AcceptedObjects(EUser.class, Collections.emptyList())
         };
     }
 

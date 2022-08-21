@@ -1,4 +1,4 @@
-package com.comic.files;
+package com.comic.files.service;
 
 import com.comic.files.dto.DUser;
 import com.comic.files.exception.InvalidInsertException;
@@ -27,7 +27,7 @@ public class UserService {
     }
 
     public DUser findById(Long id) {
-        EUser eUser = repository.findById(id).orElseThrow(() -> new NotFoundObjectException("User.ENTITY_NAME",id.toString()));
+        EUser eUser = repository.findById(id).orElseThrow(() -> new NotFoundObjectException(EUser.ENTITY_NAME,id.toString()));
         return mapper.toDto(eUser);
     }
 

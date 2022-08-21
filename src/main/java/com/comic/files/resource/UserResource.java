@@ -1,6 +1,6 @@
 package com.comic.files.resource;
 
-import com.comic.files.UserService;
+import com.comic.files.service.UserService;
 import com.comic.files.dto.DUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;

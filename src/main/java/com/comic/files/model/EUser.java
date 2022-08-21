@@ -12,14 +12,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "USER")
+@Table(name = "CF_USER")
 public class EUser {
+
+    public static final String ENTITY_NAME = "User";
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_USER")
@@ -40,6 +43,6 @@ public class EUser {
     private String password;
 
     @Column(name = "BIRTH_DATE")
-    private String birthDate;
+    private LocalDate birthDate;
 
 }
