@@ -1,6 +1,7 @@
 package com.comic.files.entities;
 
 import com.comic.files.dto.DUser;
+import com.comic.files.enums.EnumErrors;
 import com.comic.files.model.AcceptedObjects;
 import com.comic.files.model.EUser;
 import org.junit.jupiter.api.Test;
@@ -30,7 +31,8 @@ public class EntityTests {
 
         acceptedObjects = new AcceptedObjects[] {
                 new AcceptedObjects(DUser.class, Collections.emptyList()),
-                new AcceptedObjects(EUser.class, Collections.emptyList())
+                new AcceptedObjects(EUser.class, Collections.emptyList()),
+                new AcceptedObjects(EnumErrors.class, Collections.emptyList())
         };
     }
 
