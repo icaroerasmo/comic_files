@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="luke_corf" id="001">
+        <createTable tableName="USER" remarks="User information.">
+            <column autoIncrement="true" name="ID" type="NUMBER" remarks="Primary key of User.">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)" remarks="User name.">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMAIL" type="VARCHAR(100)" remarks="User e-mail.">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USERNAME" type="VARCHAR(50)" remarks="Username.">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PASSWORD" remarks="User Password Encripted." type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BIRTH_DATE" remarks="User birthdate." type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createSequence incrementBy="1" sequenceName="SEQ_USER" startValue="1"/>
+        <rollback>
+            <dropTable tableName="USER"/>
+            <dropSequence sequenceName="SEQ_USER"/>
+        </rollback>
+    </changeSet>
+
+
+    <changeSet author="luke_corf" id="002">
+        <createTable tableName="COMIC" remarks="COMIC information.">
+            <column autoIncrement="true" name="ID" type="NUMBER" remarks="Primary key of Comic.">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)" remarks="Comic name.">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createSequence incrementBy="1" sequenceName="SEQ_COMIC" startValue="1"/>
+        <rollback>
+            <dropTable tableName="COMIC"/>
+            <dropSequence sequenceName="SEQ_COMIC"/>
+        </rollback>
+    </changeSet>
+
+
+</databaseChangeLog>
