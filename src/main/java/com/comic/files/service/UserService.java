@@ -7,10 +7,12 @@ import com.comic.files.mapper.UserMapper;
 import com.comic.files.model.EUser;
 import com.comic.files.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 @Service
@@ -21,12 +23,14 @@ public class UserService {
 
     private final UserRepository repository;
 
+    private final MessageSource messageSource;
     public List<DUser> list() {
         List<EUser> users = repository.findAll(Sort.by(Sort.Direction.DESC, "id"));
         return mapper.toDto(users);
     }
 
     public DUser findById(Long id) {
+
         EUser eUser = repository.findById(id).orElseThrow(() -> new NotFoundObjectException(EUser.ENTITY_NAME,id.toString()));
         return mapper.toDto(eUser);
     }
