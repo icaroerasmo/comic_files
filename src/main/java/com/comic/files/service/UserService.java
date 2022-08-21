@@ -43,7 +43,7 @@ public class UserService {
         if(Objects.isNull(dUser.getId())) {
             return save(dUser);
         } else {
-            throw new InvalidInsertException(null);
+            throw new InvalidInsertException(dUser.getId());
         }
     }
 
